@@ -7,7 +7,7 @@ Display questions and the answer on a card to revise.
 ### App Walk-though
 
 
-<img src="https://s3.amazonaws.com/img0.recordit.co/CiCQ5VX9Gp.mp4?AWSAccessKeyId=AKIAUQ5RURZ7ND2T2B6I&Expires=1614296148&Signature=kM6GMFgvsHIS93%2FOE%2BhyG0TNP4E%3D" width=200><br>
+<img src="https://imgur.com/a/OECqDUy" width=200><br>
 
 
 ## Required
