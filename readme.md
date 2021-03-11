@@ -6,7 +6,6 @@
 Allow users to update their own questions and answers in the flashcards.
 
 ### App Walk-though
-`TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
 
 <img src="https://im6.ezgif.com/tmp/ezgif-6-aae20079b57b.gif" width=200><br>
 
