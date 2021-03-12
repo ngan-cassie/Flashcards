@@ -20,8 +20,10 @@ class ViewController: UIViewController {
         let navigationController = segue.destination as! UINavigationController
         let creationController = navigationController.topViewController as! CreationViewController
         creationController.flashcardsController = self
+        if segue.identifier == "EditSegue" {
         creationController.initialAnswer = backLabel.text
-        creationController.initialQuestion = frontLabel.text 
+        creationController.initialQuestion = frontLabel.text
+        }
     }
     
     override func viewDidLoad() {
@@ -56,12 +58,12 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateFlashcard(question: String, answer: String) {
+    func updateFlashcard(question: String, answer: String, extra1: String?, extra2: String?) {
         frontLabel.text = question
         backLabel.text = answer
-        btn1.isHidden = true
-        btn2.isHidden = true
-        btn3.isHidden = true
+        btn1.setTitle(extra1, for: .normal)
+        btn2.setTitle(answer, for: .normal)
+        btn3.setTitle(extra2, for: .normal)
     }
     @IBAction func didTapOption3(_ sender: Any) {
         frontLabel.isHidden = true

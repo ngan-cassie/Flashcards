@@ -76,7 +76,7 @@
                                     <color key="titleColor" systemColor="systemOrangeColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KIl-ZP-E2Z" kind="presentation" id="gGN-an-LJA"/>
+                                    <segue destination="KIl-ZP-E2Z" kind="show" id="gGN-an-LJA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What's the most widely spoken language in the world?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJi-h1-OOm">
@@ -92,7 +92,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="✏️"/>
                                 <connections>
-                                    <segue destination="KIl-ZP-E2Z" kind="show" id="FOM-2Z-NsA"/>
+                                    <segue destination="KIl-ZP-E2Z" kind="show" identifier="EditSegue" id="FOM-2Z-NsA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -137,6 +137,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra Answer #1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="85H-aZ-dFp">
+                                <rect key="frame" x="43" y="485" width="328" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra Answer #2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ocM-a6-g4F">
+                                <rect key="frame" x="43" y="542" width="328" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nek-Gh-cDr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -155,6 +167,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="answerTextField" destination="6AX-2O-fEp" id="yQs-1h-s3y"/>
+                        <outlet property="extraAns1" destination="85H-aZ-dFp" id="ntN-T7-C5l"/>
+                        <outlet property="extraAns2" destination="ocM-a6-g4F" id="uYN-vX-W2E"/>
                         <outlet property="questionTextField" destination="Lwn-fL-2dA" id="9LQ-ZL-0t6"/>
                     </connections>
                 </viewController>
@@ -183,7 +197,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FOM-2Z-NsA"/>
+        <segue reference="gGN-an-LJA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
