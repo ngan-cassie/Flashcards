@@ -29,8 +29,16 @@ class CreationViewController: UIViewController {
         // Get the text in the answer text field
         let answerText = answerTextField.text
         // Call the function to update the flashcard
+        if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty {
+            let alert = UIAlertController(title: "Missing text", message:"Need both a question and an answer", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(OKAction)
+            present(alert, animated: true)
+        }
+        else {
         flashcardsController.updateFlashcard(question: questionText!, answer: answerText!)
         dismiss(animated: true)
+        }
     }
     /*
     // MARK: - Navigation
