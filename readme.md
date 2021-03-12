@@ -7,7 +7,7 @@ Allow users to update their own questions and answers in the flashcards.
 
 ### App Walk-though
 
-<img src="https://im4.ezgif.com/tmp/ezgif-4-a18c17842f01.gif" width=200><br>
+<img src="https://im4.ezgif.com/tmp/ezgif-4-8a227425a887.gif" width=200><br>
 
 
 ## Required
