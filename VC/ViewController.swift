@@ -19,7 +19,9 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navigationController = segue.destination as! UINavigationController
         let creationController = navigationController.topViewController as! CreationViewController
-        creationController.flashcardsController = self 
+        creationController.flashcardsController = self
+        creationController.initialAnswer = backLabel.text
+        creationController.initialQuestion = frontLabel.text 
     }
     
     override func viewDidLoad() {
