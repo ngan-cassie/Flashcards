@@ -7,7 +7,7 @@ Allow users to update their own questions and answers in the flashcards.
 
 ### App Walk-though
 
-<img src="https://im6.ezgif.com/tmp/ezgif-6-aae20079b57b.gif" width=200><br>
+<img src="https://im4.ezgif.com/tmp/ezgif-4-a18c17842f01.gif" width=200><br>
 
 
 ## Required
@@ -16,7 +16,7 @@ Allow users to update their own questions and answers in the flashcards.
 - [x] User can enter a new question and answer in the creation screen to then show it on the flashcard
 - [x] Push code to GitHub
 ## Optional
-- [ ] User gets an error if they try to create a new flashcard with no question or answer
+- [x] User gets an error if they try to create a new flashcard with no question or answer
 - [ ] User can edit existing flashcard
 - [ ] User can add multiple choice answers in the creation screen
 
