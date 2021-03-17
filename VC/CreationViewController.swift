@@ -21,12 +21,16 @@ class CreationViewController: UIViewController {
     
     var initialQuestion: String?
     var initialAnswer: String?
+    var initialEx1: String?
+    var initialEx2: String?
     
     override func viewDidLoad() {
         super.viewDidLoad() //comment...
         // Do any additional setup after loading the view.
         questionTextField.text = initialQuestion
         answerTextField.text = initialAnswer
+        extraAns1.text = initialEx1
+        extraAns2.text = initialEx2
     }
     
     @IBAction func didTapOnCancel(_ sender: Any) {
@@ -38,9 +42,9 @@ class CreationViewController: UIViewController {
         let questionText = questionTextField.text
         // Get the text in the answer text field
         let answerText = answerTextField.text
-        // Call the function to update the flashcard
         let extraAnswer1 = extraAns1.text
         let extraAnswer2 = extraAns2.text
+        // Call the function to update the flashcard
         if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty {
             let alert = UIAlertController(title: "Missing text", message:"Need both a question and an answer", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: .default)
@@ -48,7 +52,11 @@ class CreationViewController: UIViewController {
             present(alert, animated: true)
         }
         else {
-        flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extra1: extraAnswer1! , extra2: extraAnswer2!)
+            var isExisting = false
+            if initialQuestion != nil {
+                isExisting = true
+            }
+            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extra1: extraAnswer1! , extra2: extraAnswer2!, isExisting: isExisting)
         dismiss(animated: true)
         }
     }
