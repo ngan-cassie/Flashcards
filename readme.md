@@ -7,7 +7,7 @@ A set of flashcards that can be stored
 
 ### App Walk-though
 
-<img src="https://i.imgur.com/z1CXCqr.gif" width=200><br>
+<img src="https://i.imgur.com/bhEASQc.gif" width=200><br>
 
 ## Required
 - [x] User can browse through multiple flashcards
