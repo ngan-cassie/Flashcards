@@ -53,9 +53,25 @@ class ViewController: UIViewController {
         // Read saved flashcards
         readSavedFlashcards()
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // initial state:
+        // start with the flashcard invisible and slightly smaller in size
+        // original size 1
+        card.alpha = 0.0
+        card.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        // Animation
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.card.alpha = 1.0
+                        self.card.transform = CGAffineTransform.identity})
+    }
+    override func viewDidAppear(_ animated: Bool) {
+
         // adding our initial flashcar if needed
         if flashcards.count == 0 {
-        updateFlashcard(question: "What's the most widely spoken language in the word?", answer: "Chinese", extra1: "English" , extra2: "Spanish", isExisting: false)
+        // updateFlashcard(question: "What's the most widely spoken language in the word?", answer: "Chinese", extra1: "English" , extra2: "Spanish", isExisting: false)
+            performSegue(withIdentifier: "toCreation", sender: self)
         }
         else {
             updateLabels()
