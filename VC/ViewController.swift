@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     
     var flashcards = [Flashcard]()
     
+    // button to remember what the correct answer is
+    var correctAnsBtn: UIButton!
+    
     // Current flashcard index
     var curIndex = 0
     var prevPressed = false
@@ -28,7 +31,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
     
-    
+    func updateBtnState() {
+        btn1.isEnabled = true
+        btn2.isEnabled = true
+        btn3.isEnabled = true
+    }
     @IBOutlet weak var nextBtn: UIButton!
     
     @IBOutlet weak var preBtn: UIButton!
@@ -40,8 +47,8 @@ class ViewController: UIViewController {
         if segue.identifier == "EditSegue" {
         creationController.initialAnswer = backLabel.text
         creationController.initialQuestion = frontLabel.text
-            creationController.initialEx1 = btn1.title(for: .normal)
-            creationController.initialEx2 = btn2.title(for: .normal)
+//            creationController.initialEx1 = btn1.title(for: .normal)
+//            creationController.initialEx2 = btn2.title(for: .normal)
         }
     }
     
@@ -151,14 +158,25 @@ class ViewController: UIViewController {
     }
     
     func updateLabels() {
+        updateBtnState()
         // Get current flashcard
         let curFlashcard = flashcards[curIndex]
         // Update labels
         frontLabel.text = curFlashcard.question
         backLabel.text = curFlashcard.answer
-        btn1.setTitle(curFlashcard.extra1, for: .normal)
-        btn2.setTitle(curFlashcard.extra2, for: .normal)
-        btn3.setTitle(curFlashcard.answer, for: .normal)
+      
+        let buttons = [btn1, btn2, btn3].shuffled()
+        let answers = [curFlashcard.answer, curFlashcard.extra1, curFlashcard.extra2].shuffled()
+        // Iterate over both arrays at the same time
+        for (button, answer) in zip(buttons, answers) {
+            // Set the title of this random button with a random answer
+            button?.setTitle(answer, for: .normal)
+            // If this is the correct answer, save the button
+            if answer == curFlashcard.answer {
+                correctAnsBtn = button
+            }
+        }
+       
     }
     
     @IBAction func didTapOnNext(_ sender: Any) {
@@ -170,6 +188,10 @@ class ViewController: UIViewController {
         
         // runs
         animateCardOut()
+        
+        updateBtnState()
+        
+        
     }
     @IBAction func didTapOnPrev(_ sender: Any) {
         // Decrease current index
@@ -179,6 +201,8 @@ class ViewController: UIViewController {
         updateNextPrevButtons()
         // runs
         animateCardOut()
+        
+        updateBtnState()
     }
     
     func updateFlashcard(question: String, answer: String, extra1: String, extra2: String, isExisting: Bool) {
@@ -218,14 +242,32 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func didTapOption3(_ sender: Any) {
-        frontLabel.isHidden = true
+        if btn3 === correctAnsBtn {
+            flipFlashcard()
+        }
+        else {
+            frontLabel.isHidden = false
+            btn3.isEnabled = false
+        }
     }
     
     @IBAction func didTapOption2(_ sender: Any) {
-        btn2.isHidden = true
+        if btn2 === correctAnsBtn {
+            flipFlashcard()
+        }
+        else {
+            frontLabel.isHidden = false
+            btn2.isEnabled = false
+        }
     }
     @IBAction func didTapOption1(_ sender: Any) {
-        btn1.isHidden = true
+        if btn1 === correctAnsBtn {
+            flipFlashcard()
+        }
+        else {
+            frontLabel.isHidden = false
+            btn1.isEnabled = false
+        }
     }
     
     func saveAllFlashcardsToDisk() {
