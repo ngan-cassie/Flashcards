@@ -7,10 +7,10 @@ Flashcards with an app icon and animations
 
 ### App Walk-though
 
-- Required features:
+- Required features:\
 <img src="https://i.imgur.com/32M7EW8.gif" width=200><br>
 
-- Optional features:
+- Optional features:\
 <img src="https://i.imgur.com/QYmpxCb.gif" width=200><br>
 
 
